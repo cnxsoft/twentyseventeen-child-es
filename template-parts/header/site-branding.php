@@ -26,7 +26,7 @@
                         <?php
                         $description = get_bloginfo( 'description', 'display' );
 
-                        if ( $description || is_customize_preview() ) :
+                        if ( $description && !wp_is_mobile() || is_customize_preview() && !wp_is_mobile() ) :
                                 ?>
                                 <p class="site-description"><?php echo $description; ?></p>
                         <?php endif; ?>

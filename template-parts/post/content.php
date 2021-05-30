@@ -23,18 +23,18 @@
 	<?php
 		if ( 'post' === get_post_type() && ! wp_is_mobile() ) {
 			echo '<div class="entry-meta">';
-				if ( is_single() ) {
-					twentyseventeen_posted_on();
-					echo " - ";
-                                        comments_popup_link();
-				} else {
-					twentyseventeen_posted_on();
-					echo " - ";
-                                        comments_popup_link();
-					twentyseventeen_edit_link();
-				};
-			echo '</div><!-- .entry-meta -->';
-		};
+			if ( is_single() ) {
+				twentyseventeen_posted_on();
+				echo " - ";
+				comments_popup_link();
+			} else {
+				twentyseventeen_posted_on();
+				echo " - ";
+				comments_popup_link();
+				twentyseventeen_edit_link();
+			};
+			echo '</div>';
+		}; 
 
 		if ( 'post' === get_post_type() && wp_is_mobile() ) {
 			if ( is_single() ) {
@@ -49,7 +49,10 @@
 
 	<?php 
 		if ( is_single() ) {
+			echo '<div class="post-title">';
 			the_title( '<h1 class="entry-title">', '</h1>' );
+			echo '</div>';
+
 		} elseif ( is_front_page() && is_home() ) {
 			if (!wp_is_mobile()) {
 				the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
