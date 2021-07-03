@@ -150,6 +150,10 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( is_single() ) { 
+		if (!wp_is_mobile()) {
+			/* JLA - PubGalaxy Multiplex */
+			echo adrotate_ad(8); 
+		}
 		twentyseventeen_entry_footer();
 	} ?>
 

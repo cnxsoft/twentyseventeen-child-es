@@ -5,11 +5,11 @@
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
  * @subpackage Twenty_Seventeen
- * @since 1.0
+ * @since Twenty Seventeen 1.0
  * @version 1.0
  */
 
@@ -78,12 +78,16 @@ if ( post_password_required() ) {
 	endif;
 
 	comment_form();
-        <!-- JLA - Ad after comments -->
+        /* JLA - Bottom ad after comments */
 	if (function_exists('adrotate_group')) {
 		if (!wp_is_mobile()) {
 			echo adrotate_group(2); 
 		} else {
-			echo adrotate_group(12); 
+			if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
+                            echo adrotate_group(15);
+                        } else {
+			    echo adrotate_group(12); 
+			}
 		}
 	}
 	?>

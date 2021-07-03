@@ -29,6 +29,10 @@
 <?php /* echo adrotate_ad(105);*/ ?>
 <!-- End PubGalaxy Code -->
 
+<!-- Preload wpdiscuz font for Lighthouse performance improvements -->
+<link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.es/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='wpdiscuz-preload-1' rel='preload' href='https://www.cnx-software.es/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2' as='font' type='font/woff2' crossorigin />
+<link id='wpdiscuz-preload-2' rel='preload' href='https://www.cnx-software.es/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-regular-400.woff2' as='font' type='font/woff2' crossorigin />
 </head>
 
 <body <?php body_class(); ?>>
