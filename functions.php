@@ -5,9 +5,9 @@ function my_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
-/* JLA - Set excerpts length to 160 words */
+/* JLA - Set excerpts length to 150 words */
 function custom_excerpt_length( $length ) {
-	return 160;
+	return 150;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
@@ -157,33 +157,15 @@ function dashicons_admin_only() {
 }
 add_action( 'wp_print_styles', 'dashicons_admin_only' );
 
-/* Delay loading of the cookie banner */
-add_action('wp_footer', 'wt_cli_delay_cookie_banner', 10);
-function wt_cli_delay_cookie_banner()
-{
-	if (class_exists('Cookie_Law_Info')) {
-	?>
-		<script>
-			jQuery(function() {
-				var timeDelay = 3000; //Time in milli seconds, 1000 ms = 1 second.
-				CLI.bar_elm.hide();
-				if (CLI.settings.notify_animate_show) {
-					CLI.bar_elm.css('visibility', 'hidden');
-				}
-				setTimeout(function() {
-					if (!CLI_Cookie.read(CLI_ACCEPT_COOKIE_NAME)) {
-						if (CLI.settings.notify_animate_show) {
-							CLI.bar_elm.hide();
-							CLI.bar_elm.css('visibility', 'visible');
-							CLI.bar_elm.slideDown(CLI.settings.notify_animate_show);
-						} else {
-							CLI.bar_elm.show();
-						}
-					}
-				}, timeDelay);
-			});
-		</script>
-<?php
+/* Delay Cookie banner */
+function wt_cli_defer_scripts( $tag, $handle, $src ) {
+	$defer = array( 
+	  'cookie-law-info',
+	);
+	if ( in_array( $handle, $defer ) ) {
+	   return '<script src="' . $src . '" id="'.$handle.'-js" defer="defer" type="text/javascript"></script>' . "\n";
 	}
-}
+	return $tag;
+} 
+add_filter( 'script_loader_tag', 'wt_cli_defer_scripts', 10, 3 );
 ?>
