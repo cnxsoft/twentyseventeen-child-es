@@ -214,3 +214,27 @@ a.sidebar-social, a.sidebar-social:hover {
    -webkit-box-shadow: none;
 }
 
+/* Sticky banner style */
+/*WPBeginner Footer Bar*/
+.fixedbar {
+background: #000; 
+bottom: 0px; 
+color:#fff; 
+left:0; 
+padding: 0px 0; 
+position:fixed; 
+font-size:16px; 
+width:100%; 
+z-index:99999; 
+float:left; 
+vertical-align:middle; 
+margin: 0px 0 0; 
+opacity: 0.95; 
+font-weight: bold;
+}
+.boxfloat {
+text-align:center; 
+width:920px; 
+margin:0 auto;
+}
+}
