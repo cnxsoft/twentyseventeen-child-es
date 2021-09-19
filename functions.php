@@ -168,11 +168,4 @@ function wt_cli_defer_scripts( $tag, $handle, $src ) {
 	return $tag;
 } 
 add_filter( 'script_loader_tag', 'wt_cli_defer_scripts', 10, 3 );
-
-add_action( 'wp_enqueue_scripts', 'font_display_swap' );
-function font_display_swap() {
-   wp_enqueue_style( 'twentyseventeen-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&subset=latin%2Clatin-ext&display=swap', array(), null );
-}
-
-
 ?>
